@@ -10,12 +10,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  double height1 = 0;
+  double height2 = 0;
+  double height3 = 0;
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
       Get.offAll(() => const MyHomePage());
     });
+    animateContainers();
     super.initState();
+  }
+
+  void animateContainers() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+    setState(() {
+      height1 = Get.height * 0.5;
+    });
+    await Future.delayed(const Duration(milliseconds: 300));
+    setState(() {
+      height2 = Get.height * 0.4;
+    });
+    await Future.delayed(const Duration(milliseconds: 300));
+    setState(() {
+      height3 = Get.height * 0.3;
+    });
   }
 
   @override
@@ -39,8 +58,10 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Positioned(
               bottom: 0,
-              child: Container(
-                height: Get.height * 0.5,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+                height: height1,
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: Colors.indigo.shade200,
@@ -52,8 +73,10 @@ class _SplashScreenState extends State<SplashScreen> {
               )),
           Positioned(
               bottom: 0,
-              child: Container(
-                height: Get.height * 0.4,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.easeIn,
+                height: height2,
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: Colors.indigo.shade300,
@@ -65,8 +88,10 @@ class _SplashScreenState extends State<SplashScreen> {
               )),
           Positioned(
               bottom: 0,
-              child: Container(
-                height: Get.height * 0.3,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 900),
+                curve: Curves.easeIn,
+                height: height3,
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: Colors.indigo.shade400,

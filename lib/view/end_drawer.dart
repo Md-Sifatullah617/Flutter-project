@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class EndDrawer extends StatelessWidget {
   const EndDrawer({
@@ -45,6 +46,37 @@ class EndDrawer extends StatelessWidget {
             leading: const Icon(FontAwesomeIcons.snowflake),
             title: const Text('Terms & Conditions'),
             onTap: () {},
+          ),
+          SizedBox(
+            height: Get.height * 0.6,
+          ),
+          const Divider(
+            color: Colors.grey,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Powered by ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'TMT-Soft',
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
